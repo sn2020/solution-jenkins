@@ -14,7 +14,8 @@ pipeline {
                         def version = packageJson.version
 
                         env.IMAGE_NAME = "$version-$BUILD_NUMBER"
-                    }
+                    	echo "${env.IMAGE_NAME}"
+			}
 
                 }
             }
