@@ -8,7 +8,6 @@ pipeline {
             steps {
                 script {
                     dir("app") {
-			echo "${PWD}"
                         def packageJson = readJSON file: 'package.json'
                         def version = packageJson.version
 
@@ -17,6 +16,16 @@ pipeline {
 			}
 
                 }
+            }
+        }
+    	stage('Run tests') {
+            steps {
+               script {
+                    dir("app") {
+                        sh "npm install"
+                        sh "npm run test"
+                    }
+               }
             }
         }
     }
