@@ -43,6 +43,9 @@ pipeline {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'github-credentials', usernameVariable: 'USER', passwordVariable: 'PWD')]) {
+			sh 'git config --global sn2020.email "negi.supriya88@gmail.com"'
+                        sh 'git config --global sn2020.name "jenkinsSolution"'
+
                         sh "git remote set-url origin https://${USER}:${PWD}@https://github.com/sn2020/solution-jenkins.git"
                         sh 'git add .'
                         sh 'git commit -m "ci: version bump"'
