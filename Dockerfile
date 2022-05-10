@@ -8,4 +8,5 @@ WORKDIR /usr/app
 EXPOSE 8080
 
 RUN npm install
-CMD["node","server.js"]
+
+CMD ["node", "server.js"]
