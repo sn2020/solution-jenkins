@@ -42,7 +42,7 @@ pipeline {
 	stage('commit version update') {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'github-credentials', usernameVariable: 'USER', passwordVariable: 'PWD')]) {
+                    withCredentials([usernamePassword(credentialsId: 'github-id-token', usernameVariable: 'USER', passwordVariable: 'PWD')]) {
 			sh 'git config --global user.email "negi.supriya88@gmail.com"'
                         sh 'git config --global user.name "sn2020"'
 			sh "echo $PWD | git remote set-url origin https://$USER:--password-stdin@github.com/sn2020/solution-jenkins.git"
